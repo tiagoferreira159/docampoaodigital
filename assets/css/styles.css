@@ -18,8 +18,8 @@ html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe
 .btn:hover{transform:translateY(-2px);box-shadow:0 12px 32px rgba(16,128,80,.35)}
 
 /* NAV */
-.navbar{position:sticky;top:0;z-index:9999;backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.85);border-bottom:1px solid rgba(13,27,42,.06);min-height:64px}
-.navbar.scrolled{background:rgba(255,255,255,.92); box-shadow:0 6px 24px rgba(13,27,42,.08)}
+.navbar{position:sticky;top:0;z-index:12000;backdrop-filter:saturate(180%) blur(10px);background:rgba(255,255,255,.9);border-bottom:1px solid rgba(13,27,42,.06);min-height:64px}
+.navbar.scrolled{background:rgba(255,255,255,.95); box-shadow:0 6px 24px rgba(13,27,42,.08)}
 .navbar .inner{display:flex;align-items:center;gap:28px;justify-content:space-between;padding:12px 0}
 .brand{display:flex;align-items:center;gap:12px;font-weight:800}
 .brand img{width:44px;height:44px;border-radius:10px}
@@ -38,7 +38,7 @@ html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe
 .dropdown.open .dropdown-content{display:block}
 
 /* Burger */
-.burger{display:none;background:#fff;border:1px solid rgba(13,27,42,.1);width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center;gap:6px;cursor:pointer flex-direction:column; }
+.burger{display:none;background:#fff;border:1px solid rgba(13,27,42,.1);width:44px;height:44px;border-radius:12px;align-items:center;justify-content:center;gap:6px;cursor:pointer;flex-direction:column;z-index:13000}
 .burger span{display:block;width:20px;height:2px;background:#1b2b3c;border-radius:2px}
 
 .hero{background: radial-gradient(1200px 500px at 20% -20%, rgba(26,166,90,.15), transparent),radial-gradient(1000px 500px at 120% 20%, rgba(10,115,232,.18), transparent),linear-gradient(180deg,#ffffff, #eef7f1);padding:72px 0 24px}
@@ -71,21 +71,12 @@ html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe
 .footer{background:linear-gradient(180deg,#ffffff,#eef7f1);border-top:1px solid rgba(13,27,42,.06);padding:28px 0;color:#33546f}
 
 @media(max-width:980px){
-  .burger{display:flex flex-direction:column; }
-  .nav{position:absolute; top:64px; right:16px; left:16px; flex-direction:column; gap:4px;background:#fff; border:1px solid rgba(13,27,42,.08); border-radius:14px; padding:10px;box-shadow:0 16px 34px rgba(13,27,42,.14); display:none}
-  .nav.open{display:flex}
-  .dropdown .dropdown-content{position:static; box-shadow:none; border:none; padding:0; min-width:auto}
-  .dropbtn{width:100%; justify-content:space-between}
-}
-
-
-/* v9 responsiveness improvements */
-@media (max-width: 980px){
   .hero .grid{grid-template-columns:1fr;gap:22px}
   .hero h1{font-size:2.15rem}
   .hero p{font-size:1rem}
   .pill{font-size:.9rem;padding:6px 10px}
   .hero .photo{max-width:520px;margin:4px auto 0}
+  .hero .badge{position:static; display:inline-block; margin-top:10px}
   .partners{grid-template-columns:1fr 1fr}
   .integrantes{grid-template-columns:1fr 1fr}
   .ods{grid-template-columns:1fr 1fr}
@@ -93,9 +84,14 @@ html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe
   .grid-3{grid-template-columns:1fr}
   .container{padding:0 16px}
   .brand span{font-size:1.05rem}
-  .hero .badge{top:12px;right:12px;left:auto;bottom:auto}
+  .nav{position:fixed; top:72px; right:16px; left:16px; flex-direction:column; gap:6px;
+       background:#fff; border:1px solid rgba(13,27,42,.08); border-radius:14px; padding:12px;
+       box-shadow:0 18px 36px rgba(13,27,42,.18); display:none; z-index:11000}
+  .nav.open{display:flex !important}
+  .burger{display:flex}
 }
-@media (max-width: 420px){
+
+@media(max-width:420px){
   .hero h1{font-size:1.8rem}
   .pill{font-size:.85rem}
   .brand span{display:none}
